@@ -17,6 +17,7 @@ data class CadastroEstado(
     val nome: String = "",
     val email: String = "",
     val senha: String = "",
+    val confirmarSenha: String = "",
     val carregando: Boolean = false,
     val erro: String? = null,
 )
@@ -32,6 +33,7 @@ class CadastroViewModel(aplicacao: Application) : AndroidViewModel(aplicacao) {
     fun mudarNome(nome: String) = _estado.update { it.copy(nome = nome, erro = null) }
     fun mudarEmail(email: String) = _estado.update { it.copy(email = email, erro = null) }
     fun mudarSenha(senha: String) = _estado.update { it.copy(senha = senha, erro = null) }
+    fun mudarConfirmarSenha(valor: String) = _estado.update { it.copy(confirmarSenha = valor, erro = null) }
 
     /** Se tudo der certo, a conta é criada, o token é guardado e [aoCadastrar] é chamado. */
     fun cadastrar(aoCadastrar: () -> Unit) {
@@ -42,12 +44,13 @@ class CadastroViewModel(aplicacao: Application) : AndroidViewModel(aplicacao) {
         if (campos.nome.isBlank()) return mostrarErro("Informe o seu nome")
         if (campos.email.isBlank()) return mostrarErro("Informe o e-mail")
         if (campos.senha.length < 8) return mostrarErro("A senha deve ter pelo menos 8 caracteres")
+        if (campos.senha != campos.confirmarSenha) return mostrarErro("As senhas não conferem")
 
         viewModelScope.launch {
             _estado.update { it.copy(carregando = true, erro = null) }
             try {
                 val email = campos.email.trim()
-                app.api.registrar(RegistrarRequest(campos.nome.trim(), email, campos.senha))
+                app.api.registrar(RegistrarRequest(campos.nome.trim(), email, campos.senha, campos.confirmarSenha))
                 val resposta = app.api.login(LoginRequest(email, campos.senha)) // já entra com a conta nova
                 app.sessao.token = resposta.token
                 aoCadastrar()

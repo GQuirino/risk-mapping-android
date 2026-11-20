@@ -12,7 +12,7 @@ data class TokenResponse(val token: String)
 data class Usuario(val id: Long, val nome: String, val email: String, val perfil: String)
 
 /** Corpo do POST /auth/registrar */
-data class RegistrarRequest(val nome: String, val email: String, val senha: String)
+data class RegistrarRequest(val nome: String, val email: String, val senha: String, val confirmarSenha: String)
 
 /** Tipo de risco (alagamento, buraco...). */
 data class Categoria(val id: Long, val nome: String, val descricao: String?)

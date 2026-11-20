@@ -67,6 +67,15 @@ fun TelaCadastro(
                 label = { Text("Senha (mínimo 8 caracteres)") },
                 singleLine = true,
                 visualTransformation = PasswordVisualTransformation(),
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password, imeAction = ImeAction.Next),
+                modifier = Modifier.fillMaxWidth(),
+            )
+            OutlinedTextField(
+                value = estado.confirmarSenha,
+                onValueChange = viewModel::mudarConfirmarSenha,
+                label = { Text("Confirmar senha") },
+                singleLine = true,
+                visualTransformation = PasswordVisualTransformation(),
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password, imeAction = ImeAction.Done),
                 keyboardActions = KeyboardActions(onDone = { viewModel.cadastrar(aoCadastrar) }),
                 modifier = Modifier.fillMaxWidth(),
