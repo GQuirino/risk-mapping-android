@@ -8,17 +8,17 @@ O app consome a API REST do projeto: https://risk-mapping-api.onrender.com
 
 ## Telas
 
-| Login | Lista de riscos | Detalhe do risco |
+| Login | Criar conta | Lista de riscos |
 |:---:|:---:|:---:|
-| <img src="docs/screenshots/01-login.png" width="240"> | <img src="docs/screenshots/02-lista.png" width="240"> | <img src="docs/screenshots/03-detalhe.png" width="240"> |
-| Entrar ou criar conta | Filtro por status e botão **+** para novo risco | Confirmações, status, comentários, editar e apagar |
+| <img src="docs/screenshots/01-login.png" width="240"> | <img src="docs/screenshots/06-cadastro.png" width="240"> | <img src="docs/screenshots/02-lista.png" width="240"> |
+| Entrar na conta | Nome, e-mail, senha e confirmação da senha | Filtro por status e botão **+** para novo risco |
 
-| Novo risco | Perfil |
-|:---:|:---:|
-| <img src="docs/screenshots/04-novo-risco.png" width="240"> | <img src="docs/screenshots/05-perfil.png" width="240"> |
-| Título, descrição, categoria e bairro | Dados da conta e botão **Sair** |
+| Detalhe do risco | Novo risco | Perfil |
+|:---:|:---:|:---:|
+| <img src="docs/screenshots/03-detalhe.png" width="240"> | <img src="docs/screenshots/04-novo-risco.png" width="240"> | <img src="docs/screenshots/05-perfil.png" width="240"> |
+| Confirmações, status, comentários, editar e apagar | Título, descrição, categoria e bairro | Dados da conta e botão **Sair** |
 
-Também há a tela de **cadastro** (criar conta) e a **edição de risco**, que reaproveita o formulário de novo risco.
+A **edição de risco** reaproveita o formulário de novo risco.
 
 ## Tecnologias
 
